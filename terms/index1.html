@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style-terms.css">
+
+    <title>terms</title>
+  </head>
+  <body>
+    <!-- navbar start -->
+    <section class="smartbar container-fluid">
+      <div class="row topnavjs" style="background-color: #1d1d1b; height: 35px">
+        <div class="offset-xl-1 col-xl-3 col-lg-3 col-md-3 px-0 my-auto" style="background-color: #1d1d1b">
+          <div class="left-content text-white">
+            <div class="date" id="date">01.01.2023 Çarşamba</div>
+            <div class="welcome">&nbsp;|&nbsp;SWAP'A Hoş Geldiniz</div>
+          </div>
+        </div>
+        <div class="col-xl-7 col-lg-7 col-md-7 my-auto">
+          <ul class="list-group list-group-horizontal list-unstyled float-end align-items-center">
+            <a class="smart-bar-text text-bold ud-text-with-links me-5 ml-auto" href="log-in.html">Değişime var mısın? </a>
+            <!-- Close button -->
+            <button id="closeBtn"><i class="fas fa-times"></i></button>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand me-4" href="#">
+          <img src="logo.jpg" alt="Özel Ders Sitesi" width="150" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdownMenuLink1" role="button" aria-expanded="false"> Hizmetlerimiz </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1">
+                <li><a class="dropdown-item" href="#">Hizmet 1</a></li>
+                <li><a class="dropdown-item" href="#">Hizmet 2</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="form-inline ml-auto">
+            <div class="input-group">
+              <input class="form-control" type="search" placeholder="Ara..." aria-label="Search" />
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold fw-bold" href="#" id="navbarDropdownMenuLink2" role="button" aria-expanded="false"> Hesabım </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                <li><a class="dropdown-item" href="log-in.html">Giriş Yap</a></li>
+                <li><a class="dropdown-item" href="log-in.html">Kayıt Ol</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdownMenuLink3" role="button" aria-expanded="false"> Dil </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink3">
+                <li><a class="dropdown-item" href="#">Türkçe</a></li>
+                <li><a class="dropdown-item" href="#">English</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="#">MOD</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar end -->
+
+    <div class="container terms">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="list-group" id="list-tab" role="tablist">
+                  <a class="list-group-item list-group-item-action active" id="list-kullanımşartları-list" data-toggle="list" href="#list-kullanımşartları" role="tab" aria-controls="kullanımşartları">Kullanım Şartları</a>
+                  <a class="list-group-item list-group-item-action" id="list-gizlilikpolitikası-list" data-toggle="list" href="#list-gizlilikpolitikası" role="tab" aria-controls="gizlilikpolitikası">Gizlilik Politikası</a>
+                  <a class="list-group-item list-group-item-action" id="list-fikrimülkiyetpolitikası-list" data-toggle="list" href="#list-fikrimülkiyetpolitikası" role="tab" aria-controls="fikrimülkiyetpolitikası">Fikri Mülkiyet Politikası</a>
+                  <a class="list-group-item list-group-item-action " id="list-swapapılisanssözleşmesi-list" data-toggle="list" href="#list-swapapılisanssözleşmesi" role="tab" aria-controls="swapapılisanssözleşmesi">Swap API Lisans Sözleşmesi</a>
+                  <a class="list-group-item list-group-item-action" id="list-masterservicesagreement-list" data-toggle="list" href="#list-masterservicesagreement" role="tab" aria-controls="masterservicesagreement">Master Services Agreement</a>
+                  <a class="list-group-item list-group-item-action" id="list-swapbusinessgizlilikbildirimi-list" data-toggle="list" href="#list-swapbusinessgizlilikbildirimi" role="tab" aria-controls="swapbusinessgizlilikbildirimi">Swap Business Gizlilik Bildirimi</a>
+                  <a class="list-group-item list-group-item-action " id="list-eğitmenşartları-list" data-toggle="list" href="#list-eğitmenşartları" role="tab" aria-controls="eğitmenşartları">Eğitmen Şartları</a>
+                  <a class="list-group-item list-group-item-action" id="list-işortağıhükümvekoşulları-list" data-toggle="list" href="#list-işortağıhükümvekoşulları" role="tab" aria-controls="işortağıhükümvekoşulları">İş Ortağı Hüküm ve Koşulları</a>
+                  <a class="list-group-item list-group-item-action" id="list-swapbusinessleadershipacademyterms&conditions-list" data-toggle="list" href="#list-swapbusinessleadershipacademyterms&conditions" role="tab" aria-controls="swapbusinessleadershipacademyterms&conditions">Swap Business Leadership Academy Terms & Conditions</a>
+                  <a class="list-group-item list-group-item-action " id="list-swapbusinessproterms&conditions-list" data-toggle="list" href="#list-swapbusinessproterms&conditions" role="tab" aria-controls="swapbusinessproterms&conditions">Swap Business Pro Terms & Conditions</a>
+                  <a class="list-group-item list-group-item-action" id="list-hizmetleribaşlat-list" data-toggle="list" href="#list-hizmetleribaşlat" role="tab" aria-controls="hizmetleribaşlat">Hizmetleri Başlat</a>
+                  <a class="list-group-item list-group-item-action" id="list-fiyatlandırmavepromosyonpolitikası-list" data-toggle="list" href="#list-fiyatlandırmavepromosyonpolitikası" role="tab" aria-controls="fiyatlandırmavepromosyonpolitikası">Fiyatlandırma ve Promosyon Politikası</a>
+                </div>
+            </div>
+            <div class="col-lg-9">
+              <div class="tab-content" id="nav-tabContent">
+
+                <div class="tab-pane fade show active" id="list-kullanımşartları" role="tabpanel" aria-labelledby="list-kullanımşartları-list">
+                  <h1>Kullanım Şartları</h1>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae accusamus quibusdam dolorem rerum alias tempore totam obcaecati libero quos fugit, in nihil est voluptate veritatis, adipisci ullam corporis voluptatem mollitia quisquam. Corrupti quasi saepe maiores sequi qui quidem voluptates corporis distinctio aliquid architecto error odio nihil voluptatibus numquam ipsa atque hic voluptate doloribus repellendus, praesentium laudantium? Reiciendis consequuntur aliquid rem impedit quia provident quae neque possimus ab, maxime laboriosam hic ea totam. Perspiciatis voluptatem iste eum exercitationem ex ullam, alias nam cupiditate omnis reprehenderit quo illum suscipit atque temporibus aliquid minima quibusdam velit facere maxime, quod ad eaque mollitia dolore!</p>
+                </div>>
+
+                <div class="tab-pane fade" id="list-gizlilikpolitikası" role="tabpanel" aria-labelledby="list-gizlilikpolitikası-list">
+                  <h1>Gizlilik Politikası</h1>
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae accusamus quibusdam dolorem rerum alias tempore totam obcaecati libero quos fugit, in nihil est voluptate veritatis, adipisci ullam corporis voluptatem mollitia quisquam. Corrupti quasi saepe maiores sequi qui quidem voluptates corporis distinctio aliquid architecto error odio nihil voluptatibus numquam ipsa atque hic voluptate doloribus repellendus, praesentium laudantium? Reiciendis consequuntur aliquid rem impedit quia provident quae neque possimus ab, maxime laboriosam hic ea totam. Perspiciatis voluptatem iste eum exercitationem ex ullam, alias nam cupiditate omnis reprehenderit quo illum suscipit atque temporibus aliquid minima quibusdam velit facere maxime, quod ad eaque mollitia dolore!</p>
+                </div>>
+
+                <!-- devamını aynı şekilde yap-->
+
+              </div>
+              
+
+            </div>
+
+          </div>
+
+        </div>
+    </div>
+    
+    <!-- smartbar script -->
+    <script>
+      document.getElementById("closeBtn").addEventListener("click", function () {
+        document.querySelector(".smartbar").style.display = "none";
+      });
+    </script>
+    <!-- navbar script -->
+    <script>
+      var now = new Date();
+      var dayOfWeek = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+      var day = dayOfWeek[now.getDay()];
+      var date = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getFullYear();
+
+      document.getElementById("date").textContent = date + " " + day;
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
