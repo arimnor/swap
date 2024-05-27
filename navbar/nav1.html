@@ -1,346 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Navigation Bar With Search Bar Before Sign In</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
     <style>
-        
+      .mainnavbar {
+        width: 100%;
+        height: 75px;
+        background: #fff;
+        color: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      .mainnavbar.scrolled {
+        background: #f8f9fa;
+        height: 65px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .mainbeforelogo {
+        font-size: 24px;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+      .mainnavbar.scrolled .logo {
+        transform: scale(0.9);
+      }
+      .mainbeforelogo a img {
+        height: 50px;
+        filter: none;
+        transition: height 0.3s ease;
+      }
+      .mainnavbar.scrolled .logo a img {
+        height: 45px;
+      }
+      .mainbeforecategories {
+        position: relative;
+        margin-left: 20px;
+      }
+      .mainbeforecategories button {
+        background: none;
+        border: none;
+        color: #000;
+        font-size: 18px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+      }
+      .mainbeforecategories button i {
+        margin-left: 10px;
+      }
+      .mainbeforecategories-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        color: #333;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        width: 200px;
+      }
+      .mainbeforecategories-menu.show {
+        display: block;
+      }
+      .mainbeforecategories-menu ul {
+        list-style: none;
+        padding: 10px;
+      }
+      .mainbeforecategories-menu ul li {
+        padding: 10px;
+        border-bottom: 1px solid #eaeaea;
+        transition: background-color 0.3s ease;
+      }
+      .mainbeforecategories-menu ul li:last-child {
+        border-bottom: none;
+      }
+      .mainbeforecategories-menu ul li a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+      }
+      .mainbeforecategories-menu ul li:hover {
+        background-color: #f0f0f0;
+      }
+      .mainbeforesearch {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        margin: 0 20px;
+      }
+      .mainbeforesearch form {
+        display: flex;
+        width: 100%;
+        max-width: 600px;
+        background: #fff;
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+      }
+      .mainbeforesearch form:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .mainbeforesearch input {
+        flex-grow: 1;
+        padding: 10px 15px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        border-radius: 50px 0 0 50px;
+      }
+      .mainbeforesearch button {
+        background-color: #2c3e50;
+        border: none;
+        padding: 0 20px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .mainbeforesearch button:hover {
+        background-color: #3b4b62;
+      }
+      .mainbeforemenu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+      }
+      .mainbeforemenu li {
+        margin-left: 20px;
+      }
+      .mainbeforemenu li a {
+        font-size: 18px;
+        color: #000;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .mainbeforemenu li a:hover {
+        color: #555;
+      }
+
+      mainbeforeauth-buttons {
+        display: flex;
+        align-items: center;
+      }
+      .mainbeforeauth-buttons button {
+        background-color: transparent;
+        border: 2px solid #000;
+        color: #000;
+        font-size: 16px;
+        padding: 5px 20px;
+        margin-left: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .mainbeforeauth-buttons button:hover {
+        background-color: #000;
+        color: #fff;
+      }
+      .mainbeforelanguage-select {
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+        margin-right: 16px;
+        position: relative;
+      }
+      .mainbeforelanguage-select button {
+        background: none;
+        border: none;
+        color: #000;
+        font-size: 18px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+      }
+      .mainbeforelanguage-select button i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+      .mainbeforelanguage-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        color: #333;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+        padding: 10px;
+      }
+      .mainbeforelanguage-menu.show {
+        display: block;
+      }
+      .mainbeforelanguage-menu img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 5px;
+        transition: transform 0.3s ease;
+      }
+      .mainbeforelanguage-menu img:hover {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
         .mainnavbar {
-            width: 100%;
-            height: 75px;
-            background: #fff;
-            color: #000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            position: fixed;
-            top: 0;
-            z-index: 1;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        .mainnavbar.scrolled {
-            background: #f8f9fa;
-            height: 65px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .mainbeforelogo {
-            font-size: 24px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-        .mainnavbar.scrolled .logo {
-            transform: scale(0.9);
-        }
-        .mainbeforelogo a img {
-            height: 50px;
-            filter: none;
-            transition: height 0.3s ease;
-        }
-        .mainnavbar.scrolled .logo a img {
-            height: 45px;
+          flex-direction: column;
+          align-items: flex-start;
+          height: auto;
+          padding: 10px;
         }
         .mainbeforecategories {
-            position: relative;
-            margin-left: 20px;
-        }
-        .mainbeforecategories button {
-            background: none;
-            border: none;
-            color: #000;
-            font-size: 18px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-        }
-        .mainbeforecategories button i {
-            margin-left: 10px;
-        }
-        .mainbeforecategories-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            color: #333;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-            width: 200px;
-        }
-        .mainbeforecategories-menu.show {
-            display: block;
-        }
-        .mainbeforecategories-menu ul {
-            list-style: none;
-            padding: 10px;
-        }
-        .mainbeforecategories-menu ul li {
-            padding: 10px;
-            border-bottom: 1px solid #eaeaea;
-            transition: background-color 0.3s ease;
-        }
-        .mainbeforecategories-menu ul li:last-child {
-            border-bottom: none;
-        }
-        .mainbeforecategories-menu ul li a {
-            color: #333;
-            text-decoration: none;
-            display: block;
-        }
-        .mainbeforecategories-menu ul li:hover {
-            background-color: #f0f0f0;
+          order: 2;
+          margin: 10px 0;
         }
         .mainbeforesearch {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            margin: 0 20px;
-        }
-        .mainbeforesearch form {
-            display: flex;
-            width: 100%;
-            max-width: 600px;
-            background: #fff;
-            border-radius: 50px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-        .mainbeforesearch form:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .mainbeforesearch input {
-            flex-grow: 1;
-            padding: 10px 15px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            border-radius: 50px 0 0 50px;
-        }
-        .mainbeforesearch button {
-            background-color: #2c3e50;
-            border: none;
-            padding: 0 20px;
-            color: #fff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .mainbeforesearch button:hover {
-            background-color: #3b4b62;
+          order: 3;
+          width: 100%;
+          margin: 10px 0;
         }
         .mainbeforemenu {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            margin: 0;
+          order: 4;
+          width: 100%;
+          justify-content: space-around;
         }
-        .mainbeforemenu li {
-            margin-left: 20px;
-        }
-        .mainbeforemenu li a {
-            font-size: 18px;
-            color: #000;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .mainbeforemenu li a:hover {
-            color: #555;
-        }
-
-        mainbeforeauth-buttons {
-            display: flex;
-            align-items: center;
-        }
-        .mainbeforeauth-buttons button {
-            background-color: transparent;
-            border: 2px solid #000;
-            color: #000;
-            font-size: 16px;
-            padding: 5px 20px;
-            margin-left: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .mainbeforeauth-buttons button:hover {
-            background-color: #000;
-            color: #fff;
+        .mainbeforelogo {
+          order: 1;
         }
         .mainbeforelanguage-select {
-            display: flex;
-            align-items: center;
-            margin-left: 30px;
-            margin-right: 16px;
-            position: relative;
+          order: 5;
+          width: 100%;
+          justify-content: flex-end;
+          margin-top: 10px;
         }
-        .mainbeforelanguage-select button {
-            background: none;
-            border: none;
-            color: #000;
-            font-size: 18px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-        }
-        .mainbeforelanguage-select button i {
-            margin-left: 5px;
-            transition: transform 0.3s ease;
-        }
-        .mainbeforelanguage-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            color: #333;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-            padding: 10px;
-        }
-        .mainbeforelanguage-menu.show {
-            display: block;
-        }
-        .mainbeforelanguage-menu img {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            cursor: pointer;
-            margin: 5px;
-            transition: transform 0.3s ease;
-        }
-        .mainbeforelanguage-menu img:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .mainnavbar {
-                flex-direction: column;
-                align-items: flex-start;
-                height: auto;
-                padding: 10px;
-            }
-            .mainbeforecategories {
-                order: 2;
-                margin: 10px 0;
-            }
-            .mainbeforesearch {
-                order: 3;
-                width: 100%;
-                margin: 10px 0;
-            }
-            .mainbeforemenu {
-                order: 4;
-                width: 100%;
-                justify-content: space-around;
-            }
-            .mainbeforelogo {
-                order: 1;
-            }
-            .mainbeforelanguage-select {
-                order: 5;
-                width: 100%;
-                justify-content: flex-end;
-                margin-top: 10px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <nav>
-        <div class="mainnavbar">
-            <div class="mainbeforelogo"><a href="#"><img src="logoTransparent.png" alt="Logo"></a></div>
+      <div class="mainnavbar">
+        <div class="mainbeforelogo">
+          <a href="#"><img src="../images/logoTransparent.png" alt="Logo" /></a>
+        </div>
 
         <div class="mainbeforecategories" id="mainbeforecategoriesBtn">
-            <button id="mainbeforecategoriesButton">Categories <i class="fa fa-angle-down"></i></button>
-            <div class="mainbeforecategories-menu" id="mainbeforecategoriesMenu">
-                <ul>
-                    <li><a href="#" data-en="Mathematics" data-tr="Matematik">Mathematics</a></li>
-                    <li><a href="#" data-en="Turkish" data-tr="Türkçe">Turkish</a></li>
-                    <li><a href="#" data-en="Physics" data-tr="Fizik">Physics</a></li>
-                    <li><a href="#" data-en="English" data-tr="İngilizce">English</a></li>
-                    <li><a href="#" data-en="Chemistry" data-tr="Kimya">Chemistry</a></li>
-                    <li><a href="#" data-en="Biology" data-tr="Biyoloji">Biology</a></li>
-                    <li><a href="#" data-en="Geometry" data-tr="Geometri">Geometry</a></li>
-                    <li><a href="#" data-en="Other" data-tr="Diğer">Other</a></li>
-                </ul>
-            </div>
+          <button id="mainbeforecategoriesButton">Categories <i class="fa fa-angle-down"></i></button>
+          <div class="mainbeforecategories-menu" id="mainbeforecategoriesMenu">
+            <ul>
+              <li><a href="#" data-en="Mathematics" data-tr="Matematik">Mathematics</a></li>
+              <li><a href="#" data-en="Turkish" data-tr="Türkçe">Turkish</a></li>
+              <li><a href="#" data-en="Physics" data-tr="Fizik">Physics</a></li>
+              <li><a href="#" data-en="English" data-tr="İngilizce">English</a></li>
+              <li><a href="#" data-en="Chemistry" data-tr="Kimya">Chemistry</a></li>
+              <li><a href="#" data-en="Biology" data-tr="Biyoloji">Biology</a></li>
+              <li><a href="#" data-en="Geometry" data-tr="Geometri">Geometry</a></li>
+              <li><a href="#" data-en="Other" data-tr="Diğer">Other</a></li>
+            </ul>
+          </div>
         </div>
         <div class="mainbeforesearch">
-            <form id="mainbeforesearchForm">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class="fa-solid fa-search"></i></button>
-            </form>
+          <form id="mainbeforesearchForm">
+            <input type="text" placeholder="Search..." />
+            <button type="submit"><i class="fa-solid fa-search"></i></button>
+          </form>
         </div>
 
-        
         <ul class="mainbeforemenu">
-            <div class="mainbeforeauth-buttons">
-                <button id="mainbeforesignInBtn">Sign In</button>
-                <button id="mainbeforesignUpBtn">Sign Up</button>
-            </div>
+          <div class="mainbeforeauth-buttons">
+            <button href="../registration/log-in-register.html" id="mainbeforesignInBtn">Sign In</button>
+            <button href="../registration/log-in-register.html" id="mainbeforesignUpBtn">Sign Up</button>
+          </div>
         </ul>
         <div class="mainbeforelanguage-select" id="mainbeforelanguageBtn">
-            <button id="mainbeforelanguagesButton">Language <i class="fa fa-angle-down"></i></button>
-            <div class="mainbeforelanguage-menu" id="mainbeforelanguageMenu">
-                <img src="english.jpeg" alt="English" title="English" id="enFlag">
-                <img src="turkish.jpeg" alt="Türkçe" title="Türkçe" id="trFlag">
-            </div>
+          <button id="mainbeforelanguagesButton">Language <i class="fa fa-angle-down"></i></button>
+          <div class="mainbeforelanguage-menu" id="mainbeforelanguageMenu">
+            <img src="../images/english.jpeg" alt="English" title="English" id="enFlag" />
+            <img src="../images/turkish.jpeg" alt="Türkçe" title="Türkçe" id="trFlag" />
+          </div>
         </div>
-
-        </div>
-        
+      </div>
     </nav>
     <script>
-        document.getElementById('mainbeforecategoriesButton').addEventListener('mouseenter', function() {
-            document.getElementById('mainbeforecategoriesMenu').classList.add('show');
-        });
-        document.getElementById('mainbeforecategoriesMenu').addEventListener('mouseleave', function() {
-            this.classList.remove('show');
-        });
+      document.getElementById("mainbeforecategoriesButton").addEventListener("mouseenter", function () {
+        document.getElementById("mainbeforecategoriesMenu").classList.add("show");
+      });
+      document.getElementById("mainbeforecategoriesMenu").addEventListener("mouseleave", function () {
+        this.classList.remove("show");
+      });
 
-        document.getElementById('mainbeforelanguageBtn').addEventListener('mouseenter', function() {
-            document.getElementById('mainbeforelanguageMenu').classList.add('show');
-        });
-        document.getElementById('mainbeforelanguageMenu').addEventListener('mouseleave', function() {
-            this.classList.remove('show');
-        });
+      document.getElementById("mainbeforelanguageBtn").addEventListener("mouseenter", function () {
+        document.getElementById("mainbeforelanguageMenu").classList.add("show");
+      });
+      document.getElementById("mainbeforelanguageMenu").addEventListener("mouseleave", function () {
+        this.classList.remove("show");
+      });
 
-        document.getElementById('enFlag').addEventListener('click', function() {
-            document.documentElement.lang = 'en';
-            document.getElementById('mainbeforesignInBtn').innerText = 'Sign In';
-            document.getElementById('mainbeforesignUpBtn').innerText = 'Sign Up';
-            document.getElementById('mainbeforesearchForm').querySelector('input').placeholder = 'Search...';
-            document.getElementById('mainbeforecategoriesButton').innerText = 'Categories';
-            document.querySelectorAll('.mainbeforecategories-menu a').forEach(function(element) {
-                element.innerText = element.getAttribute('data-en');
-            });
+      document.getElementById("enFlag").addEventListener("click", function () {
+        document.documentElement.lang = "en";
+        document.getElementById("mainbeforesignInBtn").innerText = "Sign In";
+        document.getElementById("mainbeforesignUpBtn").innerText = "Sign Up";
+        document.getElementById("mainbeforesearchForm").querySelector("input").placeholder = "Search...";
+        document.getElementById("mainbeforecategoriesButton").innerText = "Categories";
+        document.querySelectorAll(".mainbeforecategories-menu a").forEach(function (element) {
+          element.innerText = element.getAttribute("data-en");
         });
+      });
 
-        document.getElementById('trFlag').addEventListener('click', function() {
-            document.documentElement.lang = 'tr';
-            document.getElementById('mainbeforesignInBtn').innerText = 'Giriş Yap';
-            document.getElementById('mainbeforesignUpBtn').innerText = 'Kayıt Ol';
-            document.getElementById('mainbeforesearchForm').querySelector('input').placeholder = 'Arama...';
-            document.getElementById('mainbeforecategoriesButton').innerText = 'Kategoriler';
-            document.querySelectorAll('.mainbeforecategories-menu a').forEach(function(element) {
-                element.innerText = element.getAttribute('data-tr');
-            });
+      document.getElementById("trFlag").addEventListener("click", function () {
+        document.documentElement.lang = "tr";
+        document.getElementById("mainbeforesignInBtn").innerText = "Giriş Yap";
+        document.getElementById("mainbeforesignUpBtn").innerText = "Kayıt Ol";
+        document.getElementById("mainbeforesearchForm").querySelector("input").placeholder = "Arama...";
+        document.getElementById("mainbeforecategoriesButton").innerText = "Kategoriler";
+        document.querySelectorAll(".mainbeforecategories-menu a").forEach(function (element) {
+          element.innerText = element.getAttribute("data-tr");
         });
+      });
     </script>
 
-     <!-- JS -->
-     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
- 
-</body>
+    <!-- JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
