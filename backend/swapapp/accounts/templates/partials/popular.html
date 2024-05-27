@@ -1,0 +1,73 @@
+{% load static %}
+
+<section class="popular d-flex justify-content-center align-items-center">
+  <div class="container col-md-12">
+    <div class="PopularTitle col-lg-4 justify-content-start mt-5 mb-5"><p>Popüler Kategoriler</p></div>
+    <div class="PopularBox">
+      <div class="row justify-content-center">
+        <div class="PopularBoxItem col-lg-3 col-md-6 col-sm-12">
+          <a href="{% url 'yazilim' %}">
+            <button class="PopularBoxImg">
+              <img src="{% static 'images/popular2.jpg' %}" alt="popularimg 2" />
+            </button>
+            <button>
+              <span class="ud-heading-md ud-focus-visible-target fw-bold my-1 fs-7">Yazılım</span>
+            </button>
+          </a>
+        </div>
+        <div class="PopularBoxItem col-lg-3 col-md-6 col-sm-12">
+          <a href="{% url 'tasarım' %}">
+            <button class="PopularBoxImg">
+              <img src="{% static 'images/popular3.jpg' %}" alt="popularimg 3" />
+            </button>
+            <button>
+              <span class="ud-heading-md ud-focus-visible-target fw-bold my-1 fs-7">Tasarım</span>
+            </button>
+          </a>
+        </div>
+        <div class="PopularBoxItem col-lg-3 col-md-6 col-sm-12">
+          <a href="{% url 'kişisel' %}">
+            <button class="PopularBoxImg">
+              <img src="{% static 'images/popular4.jpg' %}" alt="popularimg 4" />
+            </button>
+            <button>
+              <span class="ud-heading-md ud-focus-visible-target fw-bold my-1 fs-7">Kişisel Gelişim</span>
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="PopularBoxItem col-lg-3 col-md-6 col-sm-12">
+          <a href="{% url 'office' %}">
+            <button class="PopularBoxImg">
+              <img src="{% static 'images/popular5.jpg' %}" alt="popularimg 5" />
+            </button>
+            <button>
+              <span class="ud-heading-md ud-focus-visible-target fw-bold my-1 fs-7">Office 365</span>
+            </button>
+          </a>
+        </div>
+        <div class="PopularBoxItem col-lg-3 col-md-6 col-sm-12">
+          <a href="{% url 'olasılık' %}">
+            <button class="PopularBoxImg">
+              <img src="{% static 'images/popular7.jpg' %}" alt="popularimg 7" />
+            </button>
+            <button>
+              <span class="ud-heading-md ud-focus-visible-target fw-bold my-1 fs-7">Olasılık ve İstatiksel</span>
+            </button>
+          </a>
+        </div>
+        <div class="PopularBoxItem col-lg-3 col-md-6 col-sm-12">
+          <a href="{% url 'elektrik' %}">
+            <button class="PopularBoxImg">
+              <img src="{% static 'images/popular8.jpg' %}" alt="popularimg 8" />
+            </button>
+            <button>
+              <span class="ud-heading-md ud-focus-visible-target fw-bold my-1 fs-7">Elektrik - Elektronik</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

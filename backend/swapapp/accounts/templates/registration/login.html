@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-login.css' %}">
+</head>
+
+<body>
+    <div class="main">
+        <div class="form-box">
+            <div class="button-box">
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+            </div>
+
+            <div class="social-icon">
+
+            </div>
+
+
+            <form method="POST" id="Login" class="input-group">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+                {% endif %}
+
+                <label for="username"></label>
+                <input type="text" id="username" name="username" class="input-field" placeholder="Enter Username"
+                    required>
+
+                <label for="password"></label>
+                <input type="password" id="password" name="password" class="input-field" placeholder="Enter Password"
+                    required>
+
+                <a href="#">Lost Your Password</a>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
